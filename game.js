@@ -1,19 +1,16 @@
-let mood = 0
-let health = 100
+let moodScore = 0
+let healthScore = 100
 let healthElement = document.getElementById("healthcheckup");
 
 
 
 function slap() {
-  mood++;
-  health--;
-  alert(mood);
-  alert(health);
-
+  moodScore++;
+  healthScore--;
+  scoreDraw();
 }
+
+
 function scoreDraw() {
-  healthElement.textContent = mood "and"
-
-
+  healthElement.textContent = `Mood: ${moodScore.toString()}  \n Health: ${healthScore.toString()}`;
 }
-
