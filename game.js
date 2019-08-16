@@ -1,7 +1,17 @@
-let moodScore = 0
-let healthScore = 100
-let playerName = "Stressed Sally"
-let hits = 0
+
+let target = {
+  name: "Stressed out Sally",
+  moodScore: 0,
+  healthScore: 100,
+  hits: 0,
+  healthHelps: [],
+}
+
+let items = {
+  food: { name: "Dinner", modifier: 10, description: "Yummy food to go with my beverage" },
+  water: { name: "Water", modifier: 5, description: "It helps with dehydration and tastes great" },
+  coffee: { name: "Coffee", modifier: 1, description: "Gives you something else to drink. " }
+}
 
 
 /**
@@ -9,9 +19,9 @@ let hits = 0
  */
 
 function slap() {
-  moodScore++;
-  healthScore--;
-  hits++
+  target.moodScore++;
+  target.healthScore--;
+  target.hits++
   scoreDraw();
 }
 
@@ -20,9 +30,9 @@ function slap() {
 */
 
 function beer() {
-  moodScore += 5;
-  healthScore -= 5;
-  hits++
+  target.moodScore++;
+  target.healthScore--;
+  target.hits++
   scoreDraw();
 }
 
@@ -31,9 +41,9 @@ function beer() {
  */
 
 function shot() {
-  moodScore += 10;
-  healthScore -= 15;
-  hits++
+  target.moodScore++;
+  target.healthScore--;
+  target.hits++
   scoreDraw();
 }
 
@@ -47,10 +57,10 @@ function scoreDraw() {
   let moodElement = document.getElementById("moodcheckup");
   let nameElement = document.getElementById("name");
   let drinkcountElement = document.getElementById("drinkcounter");
-  nameElement.textContent = `Name: ${playerName}`;
-  moodElement.textContent = `Mood: ${moodScore.toString()}`;
-  healthElement.textContent = `Health: ${healthScore.toString()}`;
-  drinkcountElement.textContent = `Number of Drinks: ${hits}`;
+  nameElement.textContent = `Name: ${target.name}`;
+  moodElement.textContent = `Mood: ${target.moodScore.toString()}`;
+  healthElement.textContent = `Health: ${target.healthScore.toString()}`;
+  drinkcountElement.textContent = `Number of Drinks: ${target.hits}`;
 
 
 
