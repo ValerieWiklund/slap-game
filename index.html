@@ -14,16 +14,21 @@
 <body>
   <div class="container">
     <div class="row display-head">
-      <div class="col-12" id="healthcheckup">
-        Health Score
+      <div class="col-12">
+        <p id="name">Name</p>
+        <p id="moodcheckup">Mood: </p>
+        <p id="healthcheckup">Health</p>
+        <p id="drinkcounter"> Number of drinks: </p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6 slap-me">
-        <img src="lefteris-kallergis-etWlaoFnTl4-unsplash.jpg" alt="" height="200px">
+    <div class="row ">
+      <div class="col-12 offset-md-2 col-md-4 slap-me  ">
+        <img src="lefteris-kallergis-etWlaoFnTl4-unsplash.jpg" alt="" height="400px">
       </div>
-      <div class="col-6">
-        <button class="btn btn-primary" onclick="slap()">More Wine</button>
+      <div class="col-12 col-md-4">
+        <button class="btn btn-primary" onclick="slap()">Wine</button>
+        <button class="btn btn-primary" onclick="beer()">Beer</button>
+        <button class="btn btn-primary" onclick="shot()">Whiskey Shot</button>
       </div>
     </div>
 
