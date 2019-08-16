@@ -12,7 +12,7 @@ let items = {
   water: { name: "Water", modifier: 5, description: "It helps with dehydration and tastes great" },
   coffee: { name: "Coffee", modifier: 1, description: "Gives you something else to drink. " }
 }
-
+giveHelp()
 
 /**
  * This function increments mood with each wine and decrements health 
@@ -46,6 +46,19 @@ function shot() {
   target.hits++
   scoreDraw();
 }
+
+
+/**
+ *  function to add modifying items to the target
+ */
+
+function giveHelp() {
+  target.healthHelps.push(items.food)
+  console.log(target.healthHelps)
+}
+
+
+
 
 
 /**
