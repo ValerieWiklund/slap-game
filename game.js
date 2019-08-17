@@ -7,12 +7,15 @@ let target = {
   healthHelps: [],
 }
 
-let items = {
-  food: { name: "Dinner", modifier: 10, description: "Yummy food to go with my beverage" },
-  water: { name: "Water", modifier: 5, description: "It helps with dehydration and tastes great" },
-  coffee: { name: "Coffee", modifier: 1, description: "Gives you something else to drink. " }
+let modifiers = {
+  food: { name: "Food", modifier: 10, description: "Adds 10 points to health" },
+  water: { name: "Water", modifier: 5, description: "Adds 5 point to health" },
+  coffee: { name: "Coffee", modifier: 1, description: "Adds 1 point to health" }
 }
-giveHelp()
+
+let modsTotal = 0;
+let healthTotal = 0;
+
 
 /**
  * This function increments mood with each wine and decrements health 
@@ -21,7 +24,8 @@ giveHelp()
 function slap() {
   target.moodScore++;
   target.healthScore--;
-  target.hits++
+  target.hits++;
+  healthTotal = target.healthScore + modsTotal;
   scoreDraw();
 }
 
@@ -30,9 +34,10 @@ function slap() {
 */
 
 function beer() {
-  target.moodScore++;
+  target.moodScore += 2;
   target.healthScore--;
   target.hits++
+  healthTotal = target.healthScore + modsTotal;
   scoreDraw();
 }
 
@@ -41,9 +46,10 @@ function beer() {
  */
 
 function shot() {
-  target.moodScore++;
-  target.healthScore--;
+  target.moodScore += 5;
+  target.healthScore -= 15;
   target.hits++
+  healthTotal = target.healthScore + modsTotal;
   scoreDraw();
 }
 
@@ -52,10 +58,22 @@ function shot() {
  *  function to add modifying items to the target
  */
 
-function giveHelp() {
-  target.healthHelps.push(items.food)
-  console.log(target.healthHelps)
+function giveHelp(type) {
+  target.healthHelps.push(modifiers[type])
+  addMods();
 }
+
+/**
+ * This function calculates the total of the modifiers added to target
+ */
+
+function addMods() {
+  for (let i = 0; i < target.healthHelps.length; i++)
+    modsTotal += target.healthHelps[i]['modifier'];
+  return modsTotal;
+
+}
+
 
 
 
@@ -72,8 +90,8 @@ function scoreDraw() {
   let drinkcountElement = document.getElementById("drinkcounter");
   nameElement.textContent = `Name: ${target.name}`;
   moodElement.textContent = `Mood: ${target.moodScore.toString()}`;
-  healthElement.textContent = `Health: ${target.healthScore.toString()}`;
-  drinkcountElement.textContent = `Number of Drinks: ${target.hits}`;
+  healthElement.textContent = `Health: ${healthTotal.toString()}`;
+  drinkcountElement.textContent = `Number of Drinks: ${target.hits} ${modsTotal}`;
 
 
 
