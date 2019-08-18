@@ -19,6 +19,9 @@ let modifiers = {
 
 let modsTotal = 0;
 let healthTotal = 0;
+let foodCount = 0;
+let waterCount = 0;
+let coffeeCount = 0;
 
 
 /**
@@ -65,17 +68,30 @@ function shot() {
 function giveHelp(type) {
   target.healthHelps.push(modifiers[type])
   addMods();
+
 }
 
 /**
- * This function calculates the total of the modifiers added to target. Does not apply until target is given another drink. 
+ * This function calculates the number of each modifier added to the target and their total value. Does not apply until target is given another drink. 
  */
 
 function addMods() {
-  for (let i = 0; i < target.healthHelps.length; i++)
+  modsTotal = 0;
+  foodCount = 0;
+  waterCount = 0;
+  coffeeCount = 0;
+  for (let i = 0; i < target.healthHelps.length; i++) {
     modsTotal += target.healthHelps[i]['modifier'];
+    if (target.healthHelps[i]['name'] == "Food") {
+      foodCount++;
+    } else if (target.healthHelps[i]['name'] == "Water") {
+      waterCount = waterCount + 1;
+    } else if (target.healthHelps[i]['name'] == "Coffee") {
+      coffeeCount++;
+    }
+  }
+  scoreDraw();
   return modsTotal;
-
 }
 
 /**
@@ -88,6 +104,9 @@ function reset() {
   target.hits = 0;
   modsTotal = 0
   target.healthHelps = [];
+  foodCount = 0;
+  waterCount = 0;
+  coffeeCount = 0;
   scoreDraw();
 }
 
@@ -104,9 +123,17 @@ function scoreDraw() {
   let moodElement = document.getElementById("moodcheckup");
   let nameElement = document.getElementById("name");
   let drinkcountElement = document.getElementById("drinkcounter");
+  let modsElement = document.getElementById("modstotalcheckup");
+  let foodElement = document.getElementById("foodcheckup");
+  let waterElement = document.getElementById("watercheckup");
+  let coffeeElement = document.getElementById("coffeecheckup")
   nameElement.textContent = `Name: ${target.name}`;
   moodElement.textContent = `Mood: ${target.moodScore.toString()}`;
   healthElement.textContent = `Health: ${target.healthScore.toString()}`;
   drinkcountElement.textContent = `Number of Drinks: ${target.hits}`;
+  modsElement.textContent = `Modifiers Total: ${modsTotal}`;
+  foodElement.textContent = `Food: ${foodCount.toString()}`;
+  waterElement.textContent = `Water: ${waterCount.toString()}`;
+  coffeeElement.textContent = `Coffee: ${coffeeCount}`;
 
 }
