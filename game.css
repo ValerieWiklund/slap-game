@@ -20,3 +20,14 @@
   margin-bottom: 0
 }
 
+.end-game {
+  color: red;
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.restart {
+  color: black;
+  font-weight: inherit;
+  font-size: inherit;
+}

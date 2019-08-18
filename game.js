@@ -22,18 +22,20 @@ let healthTotal = 0;
 let foodCount = 0;
 let waterCount = 0;
 let coffeeCount = 0;
+let loseElement = document.getElementById('loser-notice')
 
 
 /**
  * This function increments mood with each wine and decrements health 
  */
 
-function slap() {
+function wine() {
   target.moodScore++;
   target.healthScore -= 1 + modsTotal;
   target.hits++;
   // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
+  healthcheck();
 }
 
 /**
@@ -46,6 +48,7 @@ function beer() {
   target.hits++
   // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
+  healthcheck();
 }
 
 /**
@@ -58,6 +61,7 @@ function shot() {
   target.hits++
   // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
+  healthcheck();
 }
 
 
@@ -95,6 +99,16 @@ function addMods() {
 }
 
 /**
+ * This function checks health
+ */
+function healthcheck() {
+  if (target.healthScore <= 0) {
+    drawLoser();
+  }
+}
+
+
+/**
  * This function will reset the game
  */
 
@@ -108,6 +122,8 @@ function reset() {
   waterCount = 0;
   coffeeCount = 0;
   scoreDraw();
+  loseElement.classList.remove("end-game");
+  loseElement.textContent = `Stella has had just a little too much de-stressing. Time for her to sleep so she can start over.`;
 }
 
 
@@ -133,4 +149,9 @@ function scoreDraw() {
   waterElement.textContent = `Water: ${waterCount.toString()}`;
   coffeeElement.textContent = `Coffee: ${coffeeCount}`;
 
+}
+
+function drawLoser() {
+  loseElement.classList.add("end-game")
+  loseElement.textContent = `Oh, you let Stella drink too much. She fell asleep.`;
 }
