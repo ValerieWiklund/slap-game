@@ -2,7 +2,20 @@
   height: 15vh;
 }
 
-/* .hit-buttons {
-  display: flex;
+.hit-buttons {
+ /* display: flex;
+ flex-direction: column; */
+ 
 
-} */
+}
+
+.help-buttons {
+  /* display: flex;
+ flex-direction: column; */
+ 
+}
+
+
+p {
+  margin-bottom: 0
+}

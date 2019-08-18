@@ -13,28 +13,36 @@
 
 <body>
   <div class="container">
-    <div class="row display-head">
-      <div class="col-12">
+    <div class="row my-4 display-head">
+      <div class="col-12 offset-md-4 col-md-6 ">
         <p id="name">Name</p>
-        <p id="moodcheckup">Mood: </p>
-        <p id="healthcheckup">Health</p>
-        <p id="drinkcounter"> Number of drinks: </p>
+        <p id="moodcheckup">Mood: 0</p>
+        <p id="healthcheckup">Health: 100</p>
+        <p id="drinkcounter"> Number of drinks: 0 </p>
       </div>
     </div>
     <div class="row ">
-      <div class="col-12 offset-md-2 col-md-4 slap-me  ">
-        <img src="lefteris-kallergis-etWlaoFnTl4-unsplash.jpg" alt="" height="400px">
+      <div class="col-12  col-md-4 align-items-start">
+        <div>
+          <img src="Stress-Out-Stella.jpg" alt="http://clipartmag.com/images-of-stressed-out-people-clipart"
+            height=450px;>
+
+        </div>
       </div>
-      <div class="col-12 col-md-4 hit-buttons">
-        <button class="btn btn-primary" onclick="slap()">Wine</button>
-        <button class="btn btn-primary" onclick="beer()">Beer</button>
-        <button class="btn btn-primary" onclick="shot()">Whiskey Shot</button>
+      <div class="col-12  offset-md-4 col-md-3 hit-buttons justify-content-end d-flex flex-column mt-4">
+        <div class="btn-group-vertical my-4">
+          <button class="btn btn-primary  rounded mb-2" onclick="slap()">Wine</button>
+          <button class="btn btn-primary rounded mb-2" onclick="beer()">Beer</button>
+          <button class="btn btn-primary rounded" onclick="shot()">Whiskey Shot</button>
+        </div>
+
+        <div class="btn-group-vertical mt-4">
+          <button class="btn btn-success rounded mb-2" onclick="giveHelp('food')">Food</button>
+          <button class="btn btn-success rounded mb-2" onclick="giveHelp('water')">Water</button>
+          <button class="btn btn-success rounded" onclick="giveHelp('coffee')">Coffee</button>
+        </div>
       </div>
-      <div class="col-12 col-md-4 help-buttons">
-        <button class="btn btn-primary" onclick="giveHelp('food')">Food</button>
-        <button class="btn btn-primary" onclick="giveHelp('water')">Water</button>
-        <button class="btn btn-primary" onclick="giveHelp('coffee')">Coffee</button>
-      </div>
+
 
 
     </div>
