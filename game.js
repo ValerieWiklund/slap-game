@@ -1,7 +1,7 @@
 
 let target = {
   name: "Stressed out Stella",
-  moodScore: 0,
+  moodScore: 40,
   healthScore: 100,
   hits: 0,
   healthHelps: [],
@@ -77,6 +77,23 @@ function addMods() {
   return modsTotal;
 
 }
+
+/**
+ * This function will reset the game
+ */
+
+function reset() {
+  target.moodScore = 40;
+  target.healthScore = 100;
+  target.hits = 0;
+  modsTotal = 0
+  target.healthHelps = [];
+  scoreDraw();
+}
+
+
+
+
 
 /**
  * This function adds the new score to the page

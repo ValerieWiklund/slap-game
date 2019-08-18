@@ -1,18 +1,9 @@
 .display-head {
-  height: 15vh;
+  height: 10vh;
 }
 
-.hit-buttons {
- /* display: flex;
- flex-direction: column; */
- 
-
-}
-
-.help-buttons {
-  /* display: flex;
- flex-direction: column; */
- 
+.reset {
+  height: 20vh;
 }
 
 
