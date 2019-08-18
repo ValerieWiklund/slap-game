@@ -111,9 +111,6 @@ function reset() {
 }
 
 
-
-
-
 /**
  * This function adds the new score to the page
  */

@@ -1,4 +1,13 @@
-.display-head {
+.game-head {
+  border-bottom: .5rem solid black;
+}
+
+.game-head p {
+  font-style: italic;
+}
+
+
+.info-display {
   height: 10vh;
 }
 
@@ -7,7 +16,7 @@
 }
 
 
-p {
+.info-display p {
   margin-bottom: 0
 }
 
