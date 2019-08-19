@@ -1,7 +1,7 @@
 
 let target = {
   name: "Stressed out Stella",
-  moodScore: 40,
+  moodScore: 0,
   healthScore: 100,
   hits: 0,
   healthHelps: [],
@@ -12,8 +12,8 @@ let target = {
  */
 
 let modifiers = {
-  food: { name: "Food", modifier: -7, description: "Adds 10 points to health" },
-  water: { name: "Water", modifier: -5, description: "Adds 5 point to health" },
+  food: { name: "Food", modifier: -3, description: "Adds 10 points to health" },
+  water: { name: "Water", modifier: -2, description: "Adds 5 point to health" },
   coffee: { name: "Coffee", modifier: -1, description: "Adds 1 point to health" }
 }
 
@@ -25,13 +25,14 @@ let coffeeCount = 0;
 let loseElement = document.getElementById('loser-notice')
 
 
+
 /**
  * This function increments mood with each wine and decrements health 
  */
 
 function wine() {
   target.moodScore++;
-  target.healthScore -= 1 + modsTotal;
+  target.healthScore -= 5 + modsTotal;
   target.hits++;
   // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
@@ -44,7 +45,7 @@ function wine() {
 
 function beer() {
   target.moodScore += 2;
-  target.healthScore -= 1 + modsTotal;
+  target.healthScore -= 3 + modsTotal;
   target.hits++
   // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
