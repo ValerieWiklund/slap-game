@@ -114,7 +114,7 @@ function healthcheck() {
  */
 
 function reset() {
-  target.moodScore = 40;
+  target.moodScore = 0;
   target.healthScore = 100;
   target.hits = 0;
   modsTotal = 0
