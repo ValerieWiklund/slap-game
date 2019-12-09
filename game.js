@@ -1,4 +1,6 @@
-
+/**
+ * Players
+ */
 let target = {
   name: "Stressed out Stella",
   moodScore: 0,
@@ -8,13 +10,24 @@ let target = {
 }
 
 /**
+ * types of beverage
+ */
+
+let beverages = [
+  ["wine", 1, 5],
+  ["beer", 2, 3],
+  ["shot", 5, 15]
+]
+
+
+/**
  * Modifiers will decrease the amount of damage done to health. 
  */
 
 let modifiers = {
   food: { name: "Food", modifier: -3, description: "Adds 10 points to health" },
   water: { name: "Water", modifier: -2, description: "Adds 5 point to health" },
-  coffee: { name: "Coffee", modifier: -1, description: "Adds 1 point to health" }
+  coffee: { name: "Coffee", modif1ier: -1, description: "Adds 1 point to health" }
 }
 
 let modsTotal = 0;
@@ -27,43 +40,61 @@ let loseElement = document.getElementById('loser-notice')
 
 
 /**
- * This function increments mood with each wine and decrements health 
+ *Function to increment mood decrement health for the chosen beverage
  */
-
-function wine() {
-  target.moodScore++;
-  target.healthScore -= 5 + modsTotal;
+function drink(chosen) {
+  typeBev = beverages[chosen];
+  target.moodScore += typeBev[1];
+  target.healthScore -= typeBev[2] + modsTotal;
   target.hits++;
-  // healthTotal = target.healthScore + modsTotal;
   scoreDraw();
   healthcheck();
 }
 
-/**
- * This function increments mood with each beer and decrements health
-*/
 
-function beer() {
-  target.moodScore += 2;
-  target.healthScore -= 3 + modsTotal;
-  target.hits++
-  // healthTotal = target.healthScore + modsTotal;
-  scoreDraw();
-  healthcheck();
-}
 
-/**
- * This function increments mood with each shot and decrements health
- */
 
-function shot() {
-  target.moodScore += 5;
-  target.healthScore -= 15 + modsTotal;
-  target.hits++
-  // healthTotal = target.healthScore + modsTotal;
-  scoreDraw();
-  healthcheck();
-}
+
+
+
+// /**
+//  * This function increments mood with each wine and decrements health 
+//  */
+
+// function wine() {
+//   target.moodScore++;
+//   target.healthScore -= 5 + modsTotal;
+//   target.hits++;
+//   // healthTotal = target.healthScore + modsTotal;
+//   scoreDraw();
+//   healthcheck();
+// }
+
+// /**
+//  * This function increments mood with each beer and decrements health
+// */
+
+// function beer() {
+//   target.moodScore += 2;
+//   target.healthScore -= 3 + modsTotal;
+//   target.hits++
+//   // healthTotal = target.healthScore + modsTotal;
+//   scoreDraw();
+//   healthcheck();
+// }
+
+// /**
+//  * This function increments mood with each shot and decrements health
+//  */
+
+// function shot() {
+//   target.moodScore += 5;
+//   target.healthScore -= 15 + modsTotal;
+//   target.hits++
+//   // healthTotal = target.healthScore + modsTotal;
+//   scoreDraw();
+//   healthcheck();
+// }
 
 
 /**
